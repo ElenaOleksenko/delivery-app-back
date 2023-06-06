@@ -21,7 +21,7 @@ const authMiddleware = async (req, res, next) => {
   }
 
   try {
-    const tokenPayload = jwt.verify(token, process.env.secret_jwt_key);
+    const tokenPayload = jwt.verify(token, process.env.SECRET_JWT_KEY);
     const userRecord = await User.findOne({ _id: tokenPayload.userId });
     req.user = userRecord;
 

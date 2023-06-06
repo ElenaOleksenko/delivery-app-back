@@ -1,0 +1,21 @@
+# This CloudBuild will be triggered by push to main branch
+#
+
+substitutions:
+  _PROJECT_ID: delivery-app-388907
+  _FUNCTION_NAME: delivery-app
+  _REGION: europe-west2
+
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud functions deploy $_FUNCTION_NAME \
+          --runtime nodejs16 \
+          --source src \
+          --entry-point YOUR_ENTRY_POINT \
+          --trigger-http \
+          --region $_REGION \
+          --project $_PROJECT_ID

@@ -23,7 +23,6 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
 
-app.use('/', proxy({ target: 'http://localhost:3000', changeOrigin: true }));
 app.use('/public/photos', express.static(path.resolve(__dirname, 'public', 'photos')));
 app.use('/api/auth', authRouter);
 app.use('/api/users/me', authMiddleware, userRouter);

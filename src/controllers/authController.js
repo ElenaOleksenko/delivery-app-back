@@ -46,7 +46,7 @@ const loginUser = async (req, res, next) => {
         userId: user._id,
         createdDate: user.createdDate,
       };
-      const jwtToken = jwt.sign(payload, process.env.secret_jwt_key);
+      const jwtToken = jwt.sign(payload, process.env.SECRET_JWT_KEY);
       const userToken = new UserToken({
         userId: user._id,
         token: jwtToken,

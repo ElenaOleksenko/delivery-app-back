@@ -1,3 +1,4 @@
+const baseUrl = 'http://localhost:3000';
 const nodemailer = require('nodemailer');
 
 const sendEmail = async (email, subject, token, id, text) => {
@@ -15,7 +16,7 @@ const sendEmail = async (email, subject, token, id, text) => {
       from: 'oleksenko.elenka@ukr.net',
       to: email,
       subject,
-      html: `<p>You requested for reset password, kindly use this <a href="http://localhost:3000/reset-password/${token}/${id}">link</a> to reset your password</p>`,
+      html: `<p>You requested for reset password, kindly use this <a href="${baseUrl}/reset-password/${token}/${id}">link</a> to reset your password</p>`,
     });
     console.log('email sent sucessfully');
   } catch (error) {
