@@ -5,6 +5,7 @@ substitutions:
   _FUNCTION_NAME: delivery-app
   _REGION: europe-west2
   _ENTRY_POINT: index.js
+  _FUNCTION_RUNTIME : nodejs16
 
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -19,3 +20,4 @@ steps:
           --trigger-http \
           --region $_REGION \
           --project $_PROJECT_ID
+          --runtime=$_FUNCTION_RUNTIME
