@@ -29,7 +29,6 @@ app.use('/api/users/me', authMiddleware, userRouter);
 app.use('/api/trucks', authMiddleware, truckRouter);
 app.use('/api/loads', authMiddleware, loadRouter);
 
-console.log(11);
 const start = async () => {
   try {
     app.listen(process.env.PORT || 8080, () => {
