@@ -1,5 +1,4 @@
 # This CloudBuild will be triggered by push to main branch
-#
 
 substitutions:
   _PROJECT_ID: delivery-app-388907
