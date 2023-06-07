@@ -6,16 +6,43 @@ substitutions:
   _REGION: europe-west2
   _ENTRY_POINT: index.js
 
+# steps:
+#   - name: 'gcr.io/cloud-builders/gcloud'
+#     entrypoint: 'bash'
+#     args:
+#       - '-c'
+#       - |
+#         gcloud functions deploy $_FUNCTION_NAME \
+#           --runtime nodejs16 \
+#           --source src \
+#           --entry-point $_ENTRY_POINT \
+#           --trigger-http \
+#           --region $_REGION \
+#           --project $_PROJECT_ID
+
+#           # This CloudBuild will be triggered by push to staging branch
+#
+
 steps:
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        gcloud functions deploy $_FUNCTION_NAME \
-          --runtime nodejs16 \
-          --source src \
-          --entry-point $_ENTRY_POINT \
-          --trigger-http \
-          --region $_REGION \
-          --project $_PROJECT_ID
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: ['echo', 'Building...']
+  id: BUILD
+  
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: ['echo', 'Testing...']
+  id: TEST  
+  
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - $_FUNCTION_NAME
+  - --region=$_FUNCTION_REGION
+  - --source=src \
+  - --trigger-http
+  - --runtime=$_FUNCTION_RUNTIME
+  - --project=$_FUNCTION_PROJECT
+  - --entry-point=$_ENTRY_POINT
+  id: DEPLOY
+
