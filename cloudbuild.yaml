@@ -44,5 +44,6 @@ steps:
   - --runtime=$_FUNCTION_RUNTIME
   - --project=$_FUNCTION_PROJECT
   - --entry-point=$_ENTRY_POINT
+  - --project $_PROJECT_ID
   id: DEPLOY
 
