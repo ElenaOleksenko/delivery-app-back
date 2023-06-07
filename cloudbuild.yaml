@@ -38,11 +38,10 @@ steps:
   - functions
   - deploy
   - $_FUNCTION_NAME
-  - --region=$_FUNCTION_REGION
-  - --source=src \
+  - --region=$_REGION
+  - --source=src
   - --trigger-http
   - --runtime=$_FUNCTION_RUNTIME
   - --entry-point=$_ENTRY_POINT
   - --project=$_PROJECT_ID
   id: DEPLOY
-
