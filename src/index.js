@@ -23,6 +23,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
 
+console.log(1);
 app.use('/public/photos', express.static(path.resolve(__dirname, 'public', 'photos')));
 app.use('/api/auth', authRouter);
 app.use('/api/users/me', authMiddleware, userRouter);
