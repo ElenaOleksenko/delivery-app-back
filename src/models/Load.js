@@ -73,7 +73,7 @@ const Load = mongoose.model('Load', {
   ],
   createdDate: {
     type: String,
-    default: new Date().toLocaleDateString(),
+    default: new Date().toLocaleDateString('en-GB'),
   },
   readByDriver: {
     type: Boolean,

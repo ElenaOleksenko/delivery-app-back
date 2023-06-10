@@ -21,9 +21,8 @@ const Truck = mongoose.model('Truck', {
   createdDate: {
     type: String,
     default:
-    new Date().toLocaleDateString(),
+    new Date().toLocaleDateString('en-GB'),
   },
-
 });
 
 module.exports = {

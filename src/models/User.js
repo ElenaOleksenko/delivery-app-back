@@ -33,7 +33,7 @@ const User = mongoose.model('User', {
   },
   createdDate: {
     type: String,
-    default: new Date().toLocaleDateString(),
+    default: new Date().toLocaleDateString('en-GB'),
   },
   userPhoto: {
     type: Object,
