@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://elenaoleksenko.github.io/delivery-app-front/#';
 const nodemailer = require('nodemailer');
 
 const sendEmail = async (email, subject, token, id, text) => {
